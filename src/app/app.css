@@ -1,0 +1,61 @@
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 6px;
+  color: #374151; /* gray-700 */
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.qty-btn:hover {
+  background-color: #f9fafb; /* gray-50 */
+}
+
+/* Hide everything except the invoice during printing */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #invoice, #invoice * {
+    visibility: visible;
+  }
+
+  #invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-size: 14pt;
+  }
+
+  /* Table styling for print */
+  #invoice table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  #invoice table th,
+  #invoice table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+
+  /* Remove buttons in print */
+  #invoice button {
+    display: none;
+  }
+
+  /* Make text black */
+  #invoice {
+    color: #000 !important;
+    background: #fff !important;
+  }
+}
